@@ -10,9 +10,31 @@ def inf_to_nan(x):
 	return x
 
 
-def read_data(path='data/dsjtzs_txfz_training.txt'):
+def sample_data(a, size=0.7):
+	np.random.seed(1)
+	length = len(a)
+	size = int(size * length)
+	if size < 1:
+		size = 1
+	index = np.sort((np.random.random(size)*length).astype(int))
+	return np.array(a)[index]
+
+
+def read_data(path='data/dsjtzs_txfz_training.txt', extend=True):
 	train = pd.read_csv(path, sep=' ', header=None, encoding='utf-8', names=['id', 'data', 'target', 'label'])
 	train['data'] = train['data'].apply(lambda x: [list(map(float, point.split(','))) for point in x.split(';')[:-1]])
+	if extend:
+		train_new = train.copy()
+		train_new['data'] = train['data'].apply(lambda x: sample_data(x, size=0.3))
+		train_new['id'] = train['id'] + 3000
+
+		train = train.append(train_new)
+
+		train_new = train.copy()
+		train_new['data'] = train['data'].apply(lambda x: sample_data(x, size=0.7))
+		train_new['id'] = train['id'] + 3000
+		train = train.append(train_new)
+
 	train['target'] = train['target'].apply(lambda x: list(map(float, x.split(","))))
 	train['data_x'] = train['data'].apply(lambda x: np.array([i[0] for i in x]))
 	train['data_y'] = train['data'].apply(lambda x: np.array([i[1] for i in x]))
