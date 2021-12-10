@@ -18,7 +18,7 @@ public class MouseData{
                     writer.print(",");
                     writer.print((int)mousePath[j].getY());
                 if(j<mousePath.length-1)
-                    writer.print(",");
+                    writer.print(";");
             }
             writer.print("\n");
         }
