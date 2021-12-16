@@ -5,8 +5,11 @@ Proposed name: Mousetrap
 A simple classifier that uses machine learning methods to classify a certain string of mouse movements to be either performed by a human or a bot. 
 
 For basic CNN in PyTorch, see `sandbox.ipynb`.
+
 For GBDT, Ramdom Forest and feature extraction, see 'GBDT.py'.
+
 For VAR, see 'VAR.ipynb'.
+
 For LSTM, see 'LSTM.ipynb'
 
 ## Dataset Description
