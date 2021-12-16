@@ -6,11 +6,11 @@ A simple classifier that uses machine learning methods to classify a certain str
 
 For basic CNN in PyTorch, see `sandbox.ipynb`.
 
-For GBDT, Ramdom Forest and feature extraction, see 'GBDT.py'.
+For GBDT, Ramdom Forest and feature extraction, see `GBDT.py`.
 
-For VAR, see 'VAR.ipynb'.
+For VAR, see `VAR.ipynb`.
 
-For LSTM, see 'LSTM.ipynb'
+For LSTM, see `LSTM.ipynb`
 
 ## Dataset Description
 ### Dataset 1
